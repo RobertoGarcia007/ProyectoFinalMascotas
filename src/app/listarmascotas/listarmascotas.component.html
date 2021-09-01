@@ -1,0 +1,27 @@
+<h2>Gestion Mascotas</h2>
+<button class="btn btn-success" (click)="irAlta()">Alta mascotas</button>
+<button class="btn btn-secondary" (click)="menuAdmin()">Menu Administrador</button>
+
+<div class="row">
+<table class="table table-bordered">
+    <thead  class="thead thead-dark">
+    <tr>
+        <th>id</th>
+        <th>nombre</th>
+        <th>tipo</th>
+        <th>precio</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor='let m of mascota'>
+        <td>{{m.id}}</td>
+        <td>{{m.nombre}}</td>
+        <td>{{m.tipo}}</td>
+        <td>{{m.precio}}</td>
+        <td><button class="btn btn-primary" (click)='irModificar(m)'>modificar</button></td>
+    </tr>
+    </tbody>
+
+</table>
+</div>

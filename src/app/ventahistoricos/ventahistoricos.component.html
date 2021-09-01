@@ -1,0 +1,26 @@
+<h2> Historico Ventas</h2>
+<button class="btn btn-secondary buttonMenuUser" (click)="menuUser()">Menu Usuario</button>
+<div class="row">
+    <table class="table table-striped">
+        <thead >
+            <tr>
+                <th>Codigo Venta</th>
+                <th>Dni Comprador</th>
+                <th>Id Mascota</th>
+                <th>Fecha de Venta</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let v of venta">
+                <td>{{v.codigoventa}}</td>
+                <td>{{v.dnic}}</td>
+                <td>{{v.idmascota}}</td>
+                <td>{{v.fechaventa}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+ <label> Las ventas totales han sido de:&nbsp;&nbsp;   <strong> {{ventasTotales}} </strong> </label>
+
+

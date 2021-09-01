@@ -1,0 +1,54 @@
+<h2>Alta Mascotas</h2>
+<form>
+    <div class="form-group">
+        <label>nombre * </label>
+        <input type="text" id="nombre" name="nombre" maxlength="20" required
+         placeholder="Introduzca nombre" [(ngModel)]='nombre' #nombreVal="ngModel"/>
+        <div class="alert alert-danger" *ngIf="nombreVal.invalid && (nombreVal.dirty || nombreVal.touched)">
+            <div *ngIf="nombreVal?.errors?.required">
+                el nombre es obligatorio
+            </div>
+            <div *ngIf="nombreVal?.errors?.maxlength">
+               20 caracteres maximo
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>tipo *</label>
+        <input type="text" id="tipo" name="tipo" maxlength="40" required
+         placeholder="introduzca tipo de Mascota" [(ngModel)]='tipo' #tipoVal="ngModel"/>
+
+         <div class="alert alert-danger" *ngIf="tipoVal.invalid && (tipoVal.dirty || tipoVal.touched)">
+            <div *ngIf="tipoVal?.errors?.required">
+                el tipo de la mascota es obligatorio
+            </div>
+            <div *ngIf="tipoVal?.errors?.maxlength">
+               40 caracteres maximo
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>precio *</label>
+        <input type="text" id="precio" name="precio" maxlength="10" pattern="[0-9]{1,10}" required
+         placeholder="introduzca precio" [(ngModel)]='precio' #precioVal="ngModel" Validaprecio/>
+
+        <div class="alert alert-danger" *ngIf="precioVal.invalid && (precioVal.dirty || precioVal.touched)">
+            <div *ngIf="precioVal?.errors?.required">
+                el precio es obligatorio
+            </div>
+            <div *ngIf="precioVal?.errors?.maxlength">
+                10 cifras maximo
+            </div>
+            <div *ngIf="precioVal?.errors?.pattern">
+                introduca solo valores numericos
+             </div>
+             <div *ngIf="precioVal?.errors?.Validaprecio">
+                {{precioVal.errors?.Validaprecio.message}}
+             </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success buttonAlta" (click)='altaMasco()'>Alta Mascota</button>
+        <button class="btn btn-danger buttonCancelar" (click)='cancelar()'>Cancelar</button>
+    </div>
+</form>

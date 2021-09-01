@@ -1,0 +1,95 @@
+<h2>Modificar Usuario</h2>
+
+<form>
+    <div class="form-group">
+        <label>Nombre usuario </label>
+        <input type="text" name="username" id="username"  maxlength="6" pattern="[a-z]{1,6}" 
+        required [(ngModel)]="u.username" #usernameUser="ngModel"/>
+
+        <div class="alert alert-danger" *ngIf="usernameUser.invalid && (usernameUser.dirty || usernameUser.touched)">
+            <div *ngIf="usernameUser?.errors?.required">
+                el Nombre del Usuario es obligatorio
+            </div>
+            <div *ngIf="usernameUser?.errors?.maxlength">
+                6 caracteres maximo
+            </div>
+            <div *ngIf="usernameUser?.errors?.pattern">
+                tienen que ser minusculas
+            </div>  
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="text" name="clave" id="clave" minlength="6" maxlength="12" required
+        placeholder="introduzca password" [(ngModel)]="u.clave" #claveValidacion="ngModel" />
+
+        <div class="alert alert-danger" *ngIf="claveValidacion.invalid && (claveValidacion.dirty || claveValidacion.touched)">
+            <div *ngIf="claveValidacion?.errors?.required">
+                el password es obligatorio
+            </div>
+            <div *ngIf="claveValidacion?.errors?.minlength">
+                El password debe ser de entre 6 y 12 caracteres
+            </div>
+            
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Nombre </label>
+        <input type="text" name="nombre" id="nombre" maxlength="20" 
+        required placeholder="nombre" [(ngModel)]="u.nombre" #nombreVal="ngModel"/>
+        
+        <div class="alert alert-danger" *ngIf="nombreVal.invalid && (nombreVal.dirty || nombreVal.touched)">
+            <div *ngIf="nombreVal?.errors?.required">
+                el nombre es obligatorio
+            </div>
+            <div *ngIf="nombreVal?.errors?.maxlength">
+                20 caracteres maximo
+            </div>
+            
+         </div>
+    </div>
+    <div class="form-group">
+        <label>Apellidos </label>
+        <input type="text" name="apellidos" id="apellidos" maxlength="40" placeholder="Apellidos" required
+         [(ngModel)]="u.apellidos" #apellidosVal="ngModel"/>
+
+        <div class="alert alert-danger" *ngIf="apellidosVal.invalid && (apellidosVal.dirty || apellidosVal.touched)">
+            <div *ngIf="apellidosVal?.errors?.required">
+                el Apellido es obligatorio
+            </div>
+            <div *ngIf="apellidosVal?.errors?.maxlength">
+                40 caracteres maximo
+            </div>
+              
+         </div>
+    </div>
+    <div class="form-group">
+        <label>Telefono de Contacto </label>
+        <input type="text" name="telefonoCon" id="telefonoCon"  minlength="9" maxlength="9"
+        pattern="[0-9]{1,9}" required placeholder="telefono de contacto"  [(ngModel)]="u.telefonocon"
+        #telefonoVal="ngModel"/>
+
+        <div class="alert alert-danger" *ngIf="telefonoVal.invalid && (telefonoVal.dirty || telefonoVal.touched)">
+            <div *ngIf="telefonoVal?.errors?.required">
+                el telefono es obligatorio
+            </div>
+            <div *ngIf="telefonoVal?.errors?.maxlength">
+                9 caracteres maximo
+            </div>
+            <div *ngIf="telefonoVal?.errors?.minlength">
+                9 caracteres minimo
+            </div>
+            <div *ngIf="telefonoVal?.errors?.pattern">
+                introduzca solo numeros
+            </div>
+            <div *ngIf="telefonoVal?.errors?.Validatelefono">
+                {{telefonoVal?.errors?.Validatelefono.message}}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+       
+        <button class="btn btn-primary buttonAlta" (click)="modificar(u)">Modificar Usuarios</button>
+        <button class="btn btn-secondary buttonCancelar" (click)="cancelar()">Cancelar</button>
+    </div>    
+</form>

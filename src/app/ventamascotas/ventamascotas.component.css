@@ -1,0 +1,24 @@
+input {
+   
+    display: block;
+    margin: 0.1rem 1rem 0.2rem 2rem;
+    width: 75%;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border: none;
+    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.8), inset 5px 5px 10px
+        rgba(0, 0, 0, 0.1);
+    border: 0 none;
+    background: #ebf5fc;
+}
+label{
+    display: block;
+    margin: 0.1rem 1rem 0rem 2rem;
+    width: 75%;
+}
+.buttonAlta{
+    margin: 2rem  1rem 2rem 2rem;
+}
+.buttonCancelar{
+  margin: 2rem  auto 2rem auto;
+}

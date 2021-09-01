@@ -1,0 +1,31 @@
+<h2>Listar Usuario</h2>
+<button (click)="altaUsuarios()"  class="btn btn-success">Alta Usuarios </button>
+<button (click)="menuAdmin()" class="btn btn-secondary">Menu Administrador</button>
+
+<div class="row">
+<table class="table table-striped">
+    <thead  >
+    <tr>
+        <th >Nombre Usuario</th>
+        <th >Password</th>
+        <th >Nombre</th>
+        <th >Apellidos</th>
+        <th >Telefono de Contacto</th> 
+        <th ></th>
+        <th ></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let u of usuario">
+        <th>{{u.username}}</th>
+        <th>{{u.clave}}</th>
+        <th>{{u.nombre}}</th>
+        <th>{{u.apellidos}}</th>
+        <th>{{u.telefonocon}}</th>
+        <th><button class="btn btn-primary" (click)="irModificar(u)" >modificar</button></th>
+        <th><button class="btn btn-danger" (click)="irBorrar(u)" >eliminar</button></th>
+    </tr>
+    </tbody>
+
+</table>
+</div>

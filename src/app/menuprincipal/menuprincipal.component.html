@@ -1,0 +1,15 @@
+<h2>Manu Principal</h2>
+<div class="container">
+    <div class=" col-2 offset-4 ">
+        <ul class="nav flex-column align-items-justfy"  >
+            <li class="nav-item">
+                <button class="btn btn-info btn-lg" (click)="menuAdmin()">Administracion</button><br><br>
+            </li>
+            <div *ngIf="sw==false">
+            <li class="nav-item">    
+                <button class="btn btn-info btn-lg" (click)="menuUser()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Usuarios&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button><br><br>
+            </li>
+            </div>
+        </ul>
+    </div> 
+</div>   

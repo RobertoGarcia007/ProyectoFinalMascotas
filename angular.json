@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "9c8e9a26-f87e-4747-a59a-55f3727393d5"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -69,6 +72,7 @@
           "configurations": {
             "production": {
               "browserTarget": "ProyectoFinalMascotas:build:production"
+              
             },
             "development": {
               "browserTarget": "ProyectoFinalMascotas:build:development"

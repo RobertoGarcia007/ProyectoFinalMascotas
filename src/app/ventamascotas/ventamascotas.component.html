@@ -1,0 +1,51 @@
+<h2>Venta Mascotas</h2>
+<form>
+    <label>Dni de Comprador&nbsp;&nbsp;</label>
+    <input type="text" name="dnic" id="dnic" placeholder="introduzca dni comprador" [(ngModel)]="dnic">
+    <label>Id de Mascota&nbsp;&nbsp;</label>
+    <input type="text" name="id" id="id" class="form-control-sm" [(ngModel)]="id" readonly>
+    <div *ngIf="sw2==true">
+        <div class="alert alert-danger" >
+            {{mensage}}
+        </div>
+    </div>
+    <button class="btn btn-success buttonAlta" (click)="ventaMascota()">Realizar Venta</button>
+    <button class="btn btn-danger buttonCancelar" (click)="menuUser()">Cencelar</button>
+</form>
+<br>
+<h2>Lista Mascotas por Tipo</h2>
+<form>
+   
+    <select   name= "tipo"[(ngModel)]="tipo" class="buttonAlta">
+        <option></option>
+        <option *ngFor="let t of arraytipo">{{t}}</option>
+        
+    </select>
+    <button class="btn btn-primary buttonCancelar" (click)="listadoTipo()">listar Mascotas</button>
+</form>
+
+
+<div class="row">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>tipo</th>
+            <th>precio</th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let m of mascota">
+                <td>{{m.id}}</td>
+                <td>{{m.nombre}}</td>
+                <td>{{m.tipo}}</td>
+                <td>{{m.precio}}</td>
+                <td><button class="btn btn-success" (click)="exportarIdMascota(m)">Export</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+

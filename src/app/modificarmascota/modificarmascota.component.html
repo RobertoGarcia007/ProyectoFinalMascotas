@@ -1,0 +1,58 @@
+<h2>Modificar Mascota</h2>
+<form>
+    <div class="form-group">
+        <label>id:</label><label >{{m.id}}</label>
+    </div>
+    <div class="form-group">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" id="nombre" maxlength="20" required
+        placeholder="Introduzca nombre" [(ngModel)]="m.nombre" #nombreVal="ngModel"/>
+
+        <div class="alert alert-danger" *ngIf="nombreVal.invalid && (nombreVal.dirty || nombreVal.touched)">
+            <div *ngIf="nombreVal?.errors?.required">
+                el nombre es obligatorio
+            </div>
+            <div *ngIf="nombreVal?.errors?.maxlength">
+               20 caracteres maximo
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Tipo:</label>
+        <input type="text" name="tipo" id="tipo" maxlength="40" required
+        placeholder="introduzca tipo de Mascota"  [(ngModel)]="m.tipo" #tipoVal="ngModel"/>
+
+        <div class="alert alert-danger" *ngIf="tipoVal.invalid && (tipoVal.dirty || tipoVal.touched)">
+            <div *ngIf="tipoVal?.errors?.required">
+                el tipo de la mascota es obligatorio
+            </div>
+            <div *ngIf="tipoVal?.errors?.maxlength">
+               40 caracteres maximo
+            </div>
+        </div>
+    </div>
+    <div class="form-group">    
+        <label>Precio:</label>
+        <input type="text" name="precio" id="precio"  maxlength="10" pattern="[0-9]{1,10}" required
+        placeholder="introduzca precio"  [(ngModel)]="m.precio" #precioVal="ngModel"/>
+
+        <div class="alert alert-danger" *ngIf="precioVal.invalid && (precioVal.dirty || precioVal.touched)">
+            <div *ngIf="precioVal?.errors?.required">
+                el precio es obligatorio
+            </div>
+            <div *ngIf="precioVal?.errors?.maxlength">
+                10 cifras maximo
+            </div>
+            <div *ngIf="precioVal?.errors?.pattern">
+                introduca solo valores numericos
+             </div>
+             <div *ngIf="precioVal?.errors?.Validaprecio">
+                {{precioVal.errors?.Validaprecio.message}}
+             </div>
+        </div>
+    </div> 
+    <div class="form-group">   
+        <button class="btn btn-success buttonAlta" (click)="modificar(m)">Modificar</button>
+        <button class="btn btn-danger buttonCancelar" (click)="cancelar()">Cancelar</button>
+    </div>    
+</form>

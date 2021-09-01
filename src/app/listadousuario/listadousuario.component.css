@@ -1,0 +1,11 @@
+thead {
+    background-color:chocolate;
+    color: white;
+}
+h2 {
+    background-color:silver;
+    color: saddlebrown;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration-style: solid;
+}

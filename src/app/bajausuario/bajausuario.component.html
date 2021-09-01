@@ -1,0 +1,28 @@
+<h2>Baja Usuario</h2>
+<form>
+    <div class="form-group">
+    <label>Nombre de Usuario:</label> 
+    <input type="text" name="username" id="username" [(ngModel)]="u.username" readonly/>
+    </div>
+    <div class="form-group">
+    <label>Password: </label> 
+    <input type="text" name="clave" id="clave" [(ngModel)]="u.clave" readonly/> 
+    </div>
+    <div class="form-group">
+    <label>Nombre:</label>
+    <input type="text" name="nombre" id="nombre" [(ngModel)]="u.nombre" readonly/>
+    </div>
+    <div class="form-group">
+    <label>Apellidos:</label>
+    <input type="text" name="apellidos" id="apellidos" [(ngModel)]="u.apellidos" readonly/>
+    </div>
+    <div class="form-group">
+    <label>Telefono de Contacto:</label>
+    <input type="text" name=telefonocon id="telefonocon" [(ngModel)]="u.telefonocon" readonly/>
+    </div>
+    <div class="form-group">
+
+    <button class="btn btn-success buttonAlta" (click)="borrarUsuario(u)">Borrar Usuario</button>
+    <button class="btn btn-danger buttonCancelar" (click)="cancelar()">Cancelar</button>
+    </div>    
+</form>

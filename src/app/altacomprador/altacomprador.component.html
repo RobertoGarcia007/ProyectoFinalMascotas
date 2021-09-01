@@ -1,0 +1,133 @@
+<h2>Alta Comprador</h2>
+<form>
+    <div class="form-group">
+        <label>dni *                      </label>
+        <input type="text" name="dni" id="dni" maxlength="10" 
+         required placeholder="introduzca dni" [(ngModel)]="dni" #dniVal="ngModel"/>
+        
+         <div class="alert alert-danger" *ngIf="dniVal.invalid && (dniVal.dirty || dniVal.touched)">
+            <div *ngIf="dniVal?.errors?.required">
+                el dni es obligatorio
+            </div>
+            <div *ngIf="dniVal?.errors?.maxlength">
+                10 caracteres maximo
+            </div>
+           
+         </div>
+
+    </div>
+    <div class="form-group">    
+        <label>nombre *                 </label>
+        <input type="text" name="nombre" id="nombre" maxlength="20" pattern="[a-z A-Z]{1,10}"
+        required placeholder="introduzca nombre" [(ngModel)]="nombre" #nombreVal="ngModel" Validanombre/>
+        <div class="alert alert-danger" *ngIf="nombreVal.invalid && (dniVal.dirty || nombreVal.touched)">
+            <div *ngIf="nombreVal?.errors?.required">
+                el nombre es obligatorio
+            </div>
+            <div *ngIf="nombreVal?.errors?.maxlength">
+                20 caracteres maximo
+            </div>
+            <div *ngIf="nombreVal?.errors?.pattern">
+                solo caracteres
+            </div> 
+            <div *ngIf="nombreVal?.errors?.Validanombre">
+                {{nombreVal.errors?.Validanombre.message}}
+            </div>  
+         </div>
+
+    </div>
+    <div class="form-group">
+        <label>apellido *                 </label>
+        <input type="text" name="apellido" id="apellido" maxlength="40" required pattern="[a-z A-Z]{1,10}"
+        placeholder="introduzca apellido" [(ngModel)]="apellido" #apellidoVal="ngModel" Validaapellido/>
+        <div class="alert alert-danger" *ngIf="apellidoVal.invalid && (apellidoVal.dirty || apellidoVal.touched)">
+            <div *ngIf="apellidoVal?.errors?.required">
+                el Apellido es obligatorio
+            </div>
+            <div *ngIf="apellidoVal?.errors?.maxlength">
+                40 caracteres maximo
+            </div>
+            <div *ngIf="apellidoVal?.errors?.pattern">
+                solo caracteres
+            </div> 
+            <div *ngIf="apellidoVal?.errors?.Validaapellido">
+                {{telefonoVal.errors?.Validaapellido.message}}
+            </div> 
+         </div>
+    </div>
+    <div class="form-group">
+        <label>direccion *                </label>
+        <input type="text" name="direccion" id="direccion" maxlength="100" required
+         placeholder="introduzca direccion" [(ngModel)]="direccion" #direccionVal="ngModel"/>
+        <div class="alert alert-danger" *ngIf="direccionVal.invalid && (direccionVal.dirty || direccionVal.touched)">
+            <div *ngIf="direccionVal?.errors?.required">
+                la direccion es obligatoria
+            </div>
+            <div *ngIf="direccionVal?.errors?.maxlength">
+                100 caracteres maximo
+            </div>
+            
+         </div>
+    </div>
+    <div class="form-group">
+        <label>localidad *               </label>
+        <input type="text" name="localidad" id="localidad" maxlength="40" required
+         placeholder="introduzca localidad" [(ngModel)]="localidad" #localidadVal="ngModel" />
+        <div class="alert alert-danger" *ngIf="localidadVal.invalid && (localidadVal.dirty || localidadVal.touched)">
+            <div *ngIf="localidadVal?.errors?.required">
+                la Localidad es obligatoria
+            </div>
+            <div *ngIf="localidadVal?.errors?.maxlength">
+                40 caracteres maximo
+            </div>
+            
+         </div>
+    </div>
+    <div class="form-group">
+        <label>email *                   </label>
+        <input type="email" name="email" id="email" maxlength="150" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required placeholder="introduzca email"
+         [(ngModel)]="email" #emailVal="ngModel" Validaemail />
+        <div class="alert alert-danger" *ngIf="emailVal.invalid && (emailVal.dirty || emailVal.touched)">
+            <div *ngIf="emailVal?.errors?.required">
+                el email es obligatorio
+            </div>
+            <div *ngIf="emailVal?.errors?.maxlength">
+                150 caracteres maximo
+            </div>
+            <div *ngIf="emailVal?.errors?.pattern">
+                introduzca un email correcto  #####@#####.###
+            </div>
+            <div *ngIf="emailVal?.errors?.Validaemail">
+                {{emailVal.errors?.Validaemail.message}}
+            </div>
+         </div>
+    </div>
+    <div class="form-group">
+        <label>telefono de contacto *    </label>
+        <input type="tel" name="telefonoconc" id="telefonoconc" minlength="9" maxlength="9"
+         pattern="[0-9]{9}" required placeholder="introduzca telefono de contacto" [(ngModel)]="telefonoconc"
+         #telefonoVal="ngModel" Validatelefono/>
+         <div class="alert alert-danger" *ngIf="telefonoVal.invalid && (telefonoVal.dirty || telefonoVal.touched)">
+            <div *ngIf="telefonoVal?.errors?.required">
+                el telefono es obligatorio
+            </div>
+            <div *ngIf="telefonoVal?.errors?.maxlength">
+                9 caracteres maximo
+            </div>
+            <div *ngIf="telefonoVal?.errors?.minlength">
+                9 caracteres minimo
+            </div>
+            <div *ngIf="telefonoVal?.errors?.pattern">
+                debe introducir numeros
+            </div>
+            <div *ngIf="telefonoVal?.errors?.Validatelefono">
+                {{telefonoVal.errors?.Validatelefono.message}}
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <button class="btn btn-success buttonAlta" (click)="altaComprador()">Alta</button>
+        <button class="btn btn-danger buttonCancelar"  (click)="cancelar()">Cancelar</button>
+    </div>    
+</form>

@@ -1,0 +1,47 @@
+<h2>Login Usuario</h2>
+<form class="custom-form">
+    <div class="form-group">
+        <label>Nombre Usuario</label>
+        <input type="text" name="username" id="username" maxlength="6" pattern="[a-z]{1,6}" 
+        placeholder="introduzca nombre usuario" required [(ngModel)]="username"
+        #usernameUser="ngModel" >
+        
+        <div class="alert alert-danger" *ngIf="usernameUser.invalid && (usernameUser.dirty || usernameUser.touched)">
+            <div *ngIf="usernameUser?.errors?.required">
+                el Nombre del Usuario es obligatorio
+            </div>
+            <div *ngIf="usernameUser?.errors?.maxlength">
+                6 caracteres maximo
+            </div>
+            <div *ngIf="usernameUser?.errors?.pattern">
+                tienen que ser minusculas
+            </div>  
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="text" name="clave" id="clave" minlength="6" maxlength="12" required
+         placeholder="introduzca password" [(ngModel)]="clave" #claveValidacion=ngModel>
+
+        <div class="alert alert-danger" *ngIf="claveValidacion.invalid && (claveValidacion.dirty || claveValidacion.touched)">
+            <div *ngIf="claveValidacion?.errors?.required">
+                el password es obligatorio
+            </div>
+            <div *ngIf="claveValidacion?.errors?.minlength">
+                El minimo son 6 caracterees
+            </div>
+            
+        </div>
+    </div> 
+      
+    <div *ngIf="sw==true">
+        <div class="alert alert-danger" >
+            {{mensage}}
+        </div>
+    </div>
+    <div class="form-group">
+        
+        <button class="btn btn-success buttonlogin" (click)="logearse()" #loginAccess>Logearse</button>
+        <button class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+    </div> 
+</form>
